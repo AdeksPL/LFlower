@@ -1,0 +1,17 @@
+function main {
+	int a -> -10
+	calc a %a%+1
+	print "Test pierwszej zmiennej: %a%"
+	execute spam
+}
+function spam {
+	print "hello"
+	print "hello"
+	print "hello"
+	print "hello"
+	print "hello"
+	print "hello"
+	print "hello"
+	print "hello"
+	print "hello"
+}
