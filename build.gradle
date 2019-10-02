@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'LFlower'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+}
+compileJava.options.encoding = 'UTF-8'
+
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'pl.hikaricode.lflower.main.main'
+    }
+    baseName = project.name
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
